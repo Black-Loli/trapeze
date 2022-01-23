@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            background: linear-gradient(270deg, #FF3CAC 0%, #2B86C5 100%);
+            display: block;
+        }
+
+        input{
+            font-size: 30px;
+            color: white;
+            border-radius: 10px;
+            border-width: 3px;
+            margin-right: 50px;
+        }
+
+        .draw{
+            background: #FF3CAC;
+        }
+    </style>
+</head>
+<body>
+    <canvas height="666px" width="666px"> </canvas>
+    <input type="button" value="Нарисовать" onclick="drawTrapeze()" class="draw">
+    <input type="button" value="Убрать" onclick="clearCanvas()" style="background-color: #2B86C5">
+</body>
+</html>
+
+<script>
+
+    function drawTrapeze(){
+        var canvas = document.querySelectorAll('canvas')[0];
+        var ctx = canvas.getContext('2d');
+        var width = 100;
+        ctx.beginPath();
+        ctx.moveTo(width*2, width);
+        ctx.lineTo(width*3, width);
+        ctx.lineTo(width*4, width*3);
+        ctx.lineTo(width, width*3);
+        ctx.fillStyle = 'purple';
+        ctx.fill();
+    }
+    function clearCanvas(){
+        var canvas = document.querySelectorAll('canvas')[0];
+        var ctx = canvas.getContext('2d');
+        ctx.clearRect(0,0, canvas.width, canvas.height);
+    }
+</script>
